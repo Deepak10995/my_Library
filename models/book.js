@@ -9,15 +9,17 @@ const bookSchema = new mongoose.Schema({
         type: String,
     },
     publishDate:{
-        type: Number,
+        type: Date,
         required: true
     },
     pageCount:{
         type: Number,
         required: true
     },
-    timestamps: {
-        createdAt: 'created_at',
+    createdAt:{
+        type: Date,
+        required: true,
+        default: Date.now
     },
     coverImageName: {
         type: String,
@@ -26,7 +28,7 @@ const bookSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'author'
+        ref: 'Author'
     }
 });
 
